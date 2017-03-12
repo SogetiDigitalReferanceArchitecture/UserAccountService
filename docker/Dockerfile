@@ -22,5 +22,5 @@ RUN apt-get update && apt-get install -y jq
 #COPY startup.sh startup.sh
 EXPOSE 8080
 #ENTRYPOINT ["./startup.sh"]
-RUN sh -c 'touch /app.jar'
+RUN bash -c 'touch /app.jar'
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
