@@ -19,6 +19,8 @@ RUN apt-get update && apt-get install -y jq
 #  && unzip -u -d /agents /tmp/newrelic.zip newrelic/newrelic.jar \
 #  && rm /tmp/newrelic.zip
 
-COPY startup.sh startup.sh
+#COPY startup.sh startup.sh
 EXPOSE 8080
-ENTRYPOINT ["./startup.sh"]
+#ENTRYPOINT ["./startup.sh"]
+RUN sh -c 'touch /app.jar'
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
