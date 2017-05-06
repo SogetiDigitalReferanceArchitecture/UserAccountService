@@ -63,10 +63,23 @@ public class Mig {
 	public static ArrayList<User> getAllUser() {
 		ObjectMapper mapper = new ObjectMapper();
 		ArrayList<User> user = null;
-
+		String json = "[\r\n" + 
+				"	{\r\n" + 
+				"        \"uid\": 146901,\r\n" + 
+				"        \"email\": \"mig@capg.com\",\r\n" + 
+				"        \"password\": \"pass\",\r\n" + 
+				"        \"name\" : \"Mrigank Varma\"\r\n" + 
+				"    },\r\n" + 
+				"    {\r\n" + 
+				"        \"uid\": 45678,\r\n" + 
+				"        \"email\": \"chris@capg.com\",\r\n" + 
+				"        \"password\": \"pass\",\r\n" + 
+				"        \"name\" : \"Christian\"\r\n" + 
+				"    }\r\n" + 
+				"]";
 		try {
-			user = mapper.readValue(new File("user.json"), new TypeReference<ArrayList<User>>() {});			
-			
+			//user = mapper.readValue(new File("./user.json"), new TypeReference<ArrayList<User>>() {});			
+			user = mapper.readValue(json, new TypeReference<ArrayList<User>>() {});
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
