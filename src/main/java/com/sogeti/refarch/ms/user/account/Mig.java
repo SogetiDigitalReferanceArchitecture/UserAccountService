@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.ws.rs.core.Response;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,8 +20,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 public class Mig {
+	private final Logger log = LoggerFactory.getLogger(Mig.class);
 
-	@RequestMapping("/getuser")
+	@RequestMapping("/")
 	public String msg()	{
 		return "successfully build....";
 	}
@@ -28,10 +31,10 @@ public class Mig {
 	public Response authenticateUser(@RequestBody User user) {
 
 		try {
-
+			log.error("=========================>");
 			// Authenticate the user using the credentials provided
 			int userId = authenticate(user.email, user.password);
-
+			log.error(user.email + "" + user.password +  + userId);
 			// Issue a token for the user
 			//String token = issueToken(username);
 
@@ -39,7 +42,7 @@ public class Mig {
 			return Response.ok(userId).build();
 
 		} catch (Exception e) {
-			return Response.status(Response.Status.UNAUTHORIZED).build();
+			return Response.status(Response.Status.NO_CONTENT).build();
 		}      
 	}
 	
