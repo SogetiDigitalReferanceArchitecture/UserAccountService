@@ -1,0 +1,14 @@
+[
+	{
+        "uid": 146901,
+        "email": "mig@capg.com",
+        "password": "pass",
+        "name" : "Mrigank Varma"
+    },
+    {
+        "uid": 45678,
+        "email": "chris@capg.com",
+        "password": "pass",
+        "name" : "Christian"
+    }
+]
