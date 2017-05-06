@@ -34,7 +34,8 @@ public class Mig {
 			log.error("=========================>");
 			// Authenticate the user using the credentials provided
 			int userId = authenticate(user.email, user.password);
-			log.error(user.email + "" + user.password +  + userId);
+			log.error(user.email + " == " + user.password + " == " + userId);
+			System.err.println(user.email + " == " + user.password + " == " + userId);
 			// Issue a token for the user
 			//String token = issueToken(username);
 
@@ -42,6 +43,8 @@ public class Mig {
 			return Response.ok(userId).build();
 
 		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace();
 			return Response.status(Response.Status.NO_CONTENT).build();
 		}      
 	}
