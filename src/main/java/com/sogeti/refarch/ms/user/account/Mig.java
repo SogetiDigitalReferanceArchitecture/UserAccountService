@@ -78,8 +78,8 @@ public class Mig {
 				"    }\r\n" + 
 				"]";
 		try {
-			//user = mapper.readValue(new File("./user.json"), new TypeReference<ArrayList<User>>() {});			
-			user = mapper.readValue(json, new TypeReference<ArrayList<User>>() {});
+			user = mapper.readValue(new File("src/main/java/user.json"), new TypeReference<ArrayList<User>>() {});			
+			//user = mapper.readValue(json, new TypeReference<ArrayList<User>>() {});
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class Mig {
 		return user;
 	}
 	
-	/*public static void main(String args[])	{
-		System.out.println(authenticate("mig@capg.com", "pass"));
-	}*/
+	public static void main(String args[])	{
+		System.out.println(authenticate("chris@capg.com", "pass"));
+	}
 }
 
 class User{
