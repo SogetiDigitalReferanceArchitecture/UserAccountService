@@ -63,7 +63,7 @@ public class Mig {
 	public static ArrayList<User> getAllUser() {
 		ObjectMapper mapper = new ObjectMapper();
 		ArrayList<User> user = null;
-		String json = "[\r\n" + 
+		/*String json = "[\r\n" + 
 				"	{\r\n" + 
 				"        \"uid\": 146901,\r\n" + 
 				"        \"email\": \"mig@capg.com\",\r\n" + 
@@ -76,7 +76,7 @@ public class Mig {
 				"        \"password\": \"pass\",\r\n" + 
 				"        \"name\" : \"Christian\"\r\n" + 
 				"    }\r\n" + 
-				"]";
+				"]";*/
 		try {
 			user = mapper.readValue(new File("src/main/java/user.json"), new TypeReference<ArrayList<User>>() {});			
 			//user = mapper.readValue(json, new TypeReference<ArrayList<User>>() {});
